@@ -12,7 +12,7 @@
 /build
 
 #connection
-/services
+../services
 
 # misc
 .DS_Store
