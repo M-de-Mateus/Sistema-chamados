@@ -3,11 +3,9 @@ import Route from './routes'
 
 function App() {
   return (
-    <div>
       <BrowserRouter>
         <Route />
       </BrowserRouter>
-    </div>
   );
 }
 
