@@ -13,11 +13,11 @@ import { FiSettings, FiUpload } from 'react-icons/fi';
 export default function Profile(){
   const { user, signOut, setUser, storageUser } = useContext(AuthContext);
 
-  const { nome, setNome } = useState(user && user.nome);
-  const { email, setEmail } = useState(user && user.email);
+  const  [nome, setNome] = useState(user && user.nome);
+  const  [ email, setEmail] = useState(user && user.email);
 
-  const { avatarUrl, setAvatarUrl } = useState(user && user.avatarUrl);
-  const { imageAvatar, setImageAvatar } = useState(null);
+  const [ avatarUrl, setAvatarUrl ] = useState(user && user.avatarUrl);
+  const [ imageAvatar, setImageAvatar ] = useState(null);
 
 
   function handleFile(e){
