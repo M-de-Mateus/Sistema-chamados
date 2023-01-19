@@ -1,11 +1,11 @@
+
 import './title.css';
 
-
-export default function Title({children, nome}){
-    return(
-        <div className='title'>
-            {children}
-            <span>{nome}</span>
-        </div>
-    )
+export default function Title({children, name}){
+  return(
+    <div className="title">
+      {children}
+      <span>{name}</span>
+    </div>
+  )
 }
