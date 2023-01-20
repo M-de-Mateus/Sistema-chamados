@@ -3,6 +3,7 @@ import Header from '../../components/Header';
 import Title from '../../components/Title';
 import { AuthContext } from '../../contexts/auth';
 import firebase from '../../services/firebaseConnection';
+import { toast } from 'react-toastify'
 
 import './new.css';
 import { FiPlus } from 'react-icons/fi';
@@ -56,13 +57,32 @@ export default function New(){
 
     }, []);
 
-    function handleRegister(e){
+    async function handleRegister(e){
         e.preventDefault();
+
+        await firebase.firestore().collection('chamados')
+        .add({
+            created: new Date(),
+            cliente: customers[customerSelected].nomeFantasia,
+            clienteId: customers[customerSelected].id,
+            assunto: assunto,
+            status: status,
+            complemento: complemento,
+            userId: user.uid
+        })
+        .then(()=>{
+            toast.success('Chamado criado com sucesso!')
+            setComplemento('');
+            setCustomerSelected(0);
+        })
+        .catch((error)=>{
+            toast.error('Erro ao cadastrar chamado, tente novamente mais tarde!')
+            console.log(error)
+        })
     }
 
     function handleChangeSelect(e){
         setAssunto(e.target.value);
-        
     }
 
     function handleOptionChange(e){
