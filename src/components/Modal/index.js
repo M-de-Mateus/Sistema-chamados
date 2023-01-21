@@ -38,7 +38,8 @@ export default function Modal({conteudo, close}){
 
                     {conteudo.complemento !== '' && (
                         <>
-                            <h3>Complemento</h3>
+                            <h3>Complemento:</h3>
+                            <br/>
                             <p>
                                 {conteudo.complemento}
                             </p>
